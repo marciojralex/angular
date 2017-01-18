@@ -1,0 +1,10 @@
+<div>
+	<h1>chat</h1>
+	<label>Você esta logado como: {{usuario[0].nome}}</label>
+	<br/>
+	<label>Email: {{usuario[0].email}}</label>
+	<textarea id="areaId" readonly="readonly" class="form-control box-mensagens" style="resize:none" rows="15" ng-model="mensagens"></textarea>	
+	<input class="form-control box-mensagens" type="text" placeholder="Digite a mensagem" ng-model="mensagem"/>
+	<input class="btn btn-primary box-mensagens" ng-click="enviarMensagem()" type="button" value="Enviar"/>
+	<input class="btn btn-danger box-mensagens" ng-click="signOut()" type="button" value="SignOut"/>
+</div> 
