@@ -4,18 +4,32 @@ chat.controller('ChatController',['$scope','$location','loginFactory','mensagemF
 	
 	$scope.usuario = loginFactory.getData();
 	$scope.mensagem = "";
-	$scope.mensagens = mensagemFactory.getMensagem();
+  $scope.mensagens = [];
+  var enviar = {
+      mensagem : "vazia",
+      id : "0",
+      usuarioId : "0"
+  }
+
+  var getMensagens = function(){
+    console.log($scope.mensagens);
+
+    $scope.mensagens = mensagemFactory.getMensagem();
+    console.log("lista de mensagens = ") 
+    console.log($scope.mensagens);
+  };
 
 	$scope.signOut = function () {
     	$location.path('/');
     	loginFactory.clearSession();
-     	 $scope.$apply();
+     	$scope.$apply();
    	};
 
    	$scope.enviarMensagem = function(){
-   		mensagemFactory.sendMensagem($scope.mensagem);
-   		$scope.mensagens.push($scope.mensagem);
-   		console.log($scope.mensagens);
+      enviar.mensagem = $scope.mensagem;
+   		mensagemFactory.sendMensagem(enviar);
+   		console.log(enviar);
    	};
 
+    getMensagens();
 }]);
