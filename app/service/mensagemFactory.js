@@ -3,7 +3,7 @@ var app = angular.module('mensagemConstrutor',[]);
 app.factory("mensagemFactory",['$http',function($http){
 
 	var getMensagem = function(){
-		return $http.get("http://localhost:9000/mensagem").then(function(result){
+		return $http.get("https://secret-shore-36816.herokuapp.com/mensagem").then(function(result){
 			console.log("retorno do get = ");
 			console.log(result);
 			return result;
@@ -11,12 +11,12 @@ app.factory("mensagemFactory",['$http',function($http){
 	};
 
 	var getMensagens = function(id){
-		return $http.get("http://localhost:9000/mensagens",id);
+		return $http.get("https://secret-shore-36816.herokuapp.com/mensagens",id);
 	};
 
 	var sendMensagem = function(mensagem){
 		console.log(mensagem);
-		$http.post("http://localhost:9000/enviar", mensagem).then(function(result){
+		$http.post("https://secret-shore-36816.herokuapp.com/enviar", mensagem).then(function(result){
 			console.log("retorno do post");
 			console.log(result);
 		});
